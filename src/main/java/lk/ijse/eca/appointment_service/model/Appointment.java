@@ -1,17 +1,10 @@
 package lk.ijse.eca.appointment_service.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Appointment {
 
     @Id
@@ -19,8 +12,68 @@ public class Appointment {
     private Long id;
 
     private Long ownerId;
-    private String petId; // MongoDB pet id (String)
+    private String petId;
     private LocalDateTime appointmentDate;
     private String reason;
-    private String status; // PENDING, CONFIRMED, COMPLETED, CANCELLED
+    private String status;
+
+    public Appointment() {
+    }
+
+    public Appointment(Long id, Long ownerId, String petId, LocalDateTime appointmentDate, String reason, String status) {
+        this.id = id;
+        this.ownerId = ownerId;
+        this.petId = petId;
+        this.appointmentDate = appointmentDate;
+        this.reason = reason;
+        this.status = status;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public String getPetId() {
+        return petId;
+    }
+
+    public void setPetId(String petId) {
+        this.petId = petId;
+    }
+
+    public LocalDateTime getAppointmentDate() {
+        return appointmentDate;
+    }
+
+    public void setAppointmentDate(LocalDateTime appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
